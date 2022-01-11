@@ -1,0 +1,37 @@
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+  <li class="breadcrumb-item active">STOCKS</li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">STOCKS Detail</h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="stockprice" #editForm="ngForm" (ngSubmit)="save()">
+    
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="number" [(ngModel)]="stockprice.id" id="id" name="id" class="form-control">
+      </div>
+    
+      <div class="form-group">
+        <label for="stockprice">Stock Price</label>
+        <input [(ngModel)]="stockprice.stockprice" id="stockprice" name="stockprice" class="form-control">
+      </div>
+    
+      <div class="form-group">
+        <label for="lastupdate">Last update</label>
+        <input [(ngModel)]="stockprice.lastupdate" id="lastupdate" name="lastupdate" class="form-control">
+      </div>
+    
+      <div class="form-group">
+        <label for="companies">COMPANIES</label>
+        <input [(ngModel)]="stockprice.companies" id="companies" name="companies" class="form-control">
+      </div>
+    
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

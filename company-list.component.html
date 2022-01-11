@@ -1,0 +1,53 @@
+<div class="container">
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+  <li class="breadcrumb-item active">Company</li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">Company List</h2>
+  </div>
+  <div class="content">
+    <form #f="ngForm">
+
+      <!-- <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Search</button> -->
+      <!-- <a [routerLink]="['../companies', 'new' ]" class="btn btn-default">New</a> -->
+    </form>
+  </div>
+</div>
+<div class="card" *ngIf="companyList.length > 0">
+  <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+  <div class="table-responsive">
+    <table class="table table-centered table-hover mb-0" id="datatable">
+      <thead>
+        <tr>
+          <th class="border-top-0" scope="col">Company Code</th>
+          <th class="border-top-0" scope="col">Company Name</th>
+          <th class="border-top-0" scope="col">Company CEO</th>
+          <th class="border-top-0" scope="col">Company turn over</th>
+          <th class="border-top-0" scope="col">company website</th>
+          <th class="border-top-0" scope="col">stock exchange</th>
+          <th class="border-top-0" scope="col">stocks</th>
+          <th class="border-top-0" scope="col" style="width:120px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of b" [class.active]="item === selectedCompany">
+
+          <td>{{item.companycode}}</td>
+          <td>{{item.companyname}}</td>
+          <td>{{item.companyceo}}</td>
+          <td>{{item.companyturnover}}</td>
+          <td>{{item.companywebsite}}</td>
+          <td>{{item.stockexchange}}</td>
+          <td>{{item.stocks}}</td>
+          <td style="white-space: nowrap">
+            <!-- <a [routerLink]="['../company', item.companycode ]" class="btn btn-secondary">Edit</a>&nbsp; -->
+            <!-- <button (click)="delete(item)" class="btn btn-danger">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

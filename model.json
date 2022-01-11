@@ -1,35 +1,47 @@
-{ 
-    "title": "STOCKS",
-    "entity": "stockprice",
+{
+    "title": "Company",
+    "entity": "company",
     "api": {
-      "url": "http://localhost:8082/api/stockprice"
+      "url": "http://localhost:8083/api/v1.0/market/company/getAll"
     },
     "filter": [
-      "city"
+      "company"
     ],
     "fields": [
       {
-            "name": "id",
-            "isId": true,
-            "type": "number",
-            "label": "Id",
-            "default": 0,
-            "control": "text"
+        "name": "companycode",
+        "label": "Company Code",
+        "isId": true,
+        "readonly": true,
+        "type": "number"
       },
       {
-        "name": "stockprice",
+        "name": "companyname",
         "type": "string",
-        "label": "Stock Price"
+        "label": "Company Name"
       },
       {
-        "name": "lastupdate",
+        "name": "companyceo",
         "type": "string",
-        "label": "Last update"
+        "label": "Company CEO"
       },
       {
-        "name": "companies",
+        "name": "companyturnover",
+        "type": "number",
+        "label": "Company turn over"
+      },
+      {
+        "name": "companywebsite",
         "type": "string",
-        "label": "COMPANIES"
+        "label": "company website"
+      },
+      {
+        "name": "stockexchange",
+        "type": "string",
+        "label": "stock exchange"
+      },
+      {
+        "name": "stocks"
       }
     ]
 }

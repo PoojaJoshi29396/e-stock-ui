@@ -1,0 +1,51 @@
+<div class="container">
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+  <li class="breadcrumb-item active">Company</li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">Company Detail</h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="company" #editForm="ngForm" (ngSubmit)="save()">
+
+      <div class="form-group">
+        <label>Company Code</label>
+        <input [(ngModel)]="company.companycode" id="companycode" name="companycode" class="form-control">
+        <!-- {{company.companycode || 'n/a'}}  -->
+
+      </div>
+
+      <div class="form-group">
+        <label for="companyname">Company Name</label>
+        <input [(ngModel)]="company.companyname" id="companyname" name="companyname" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="companyceo">Company CEO</label>
+        <input [(ngModel)]="company.companyceo" id="companyceo" name="companyceo" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="companyturnover">Company turn over</label>
+        <input type="number" [(ngModel)]="company.companyturnover" id="companyturnover" name="companyturnover" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="companywebsite">company website</label>
+        <input [(ngModel)]="company.companywebsite" id="companywebsite" name="companywebsite" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="stockexchange">stock exchange</label>
+        <input [(ngModel)]="company.stockexchange" id="stockexchange" name="stockexchange" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
+</div>

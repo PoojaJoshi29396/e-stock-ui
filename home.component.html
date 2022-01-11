@@ -1,0 +1,89 @@
+<form class="form-horizontal">
+  <fieldset>
+
+
+  <div class="container">
+    <div class="border border-3"></div>
+    <div class="row row-cols-4">
+      <div class="col">
+        <label class="control-label" for="AddCompany"></label>
+      <a class="btn btn-primary" routerLink="/company/companies/new">Add Company</a>
+      </div>
+      <div class="col">
+        <label class="control-label" for="ListCompanies"></label>
+      <a class="btn btn-primary" routerLink="/company/companies">List of All companies</a>
+      </div>
+      <div class="col">
+        <a class="btn btn-primary" (click)="findByCompanies()">Search</a>
+      </div>
+      <div class="col form-row">
+      <input name="searchinput" type="text" placeholder="<companyCode>" class="form-control input-md"
+        [(ngModel)]="searchCompanyCode">
+    </div>
+    </div>
+    <div class="row m-1">
+      <div class="col-md-6">
+        <label class="control-label" for="ComapnyCode">Company Code</label>
+      </div>
+      <div class="col-md-6">
+        <input id="companycode" name="companycode" type="text" placeholder="" class="form-control input-md"
+        [(ngModel)]="companyCode">
+      </div>
+
+    </div>
+
+    <div class="row m-1">
+      <div class="col-md-6">
+        <label class="control-label" for="CompanyName">Company Name</label>
+      </div>
+      <div class="col-md-6">
+        <input id="companyname" name="companyname" type="text" placeholder="" class="form-control input-md"
+        [(ngModel)]="companyName">
+      </div>
+
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Stock Price</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{listOfCompanies.stockPrice}}</td>
+          <!-- <td>{{item.lastupdate}}</td> -->
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>MAX</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>MIN</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>AVG</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>
+
+
+
+
+  </fieldset>
+  </form>
+
